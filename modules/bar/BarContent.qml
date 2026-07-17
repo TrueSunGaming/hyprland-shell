@@ -1,30 +1,40 @@
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Controls
 import "../../components/containers"
-import "../../components/text"
 import "widgets"
 
-RowLayout {
-    RowLayout {
-
+FiveRow {
+    leftComponent: RowLayout {
+        Rectangle {
+            Layout.preferredWidth: 100
+            Layout.fillHeight: true
+            color: "red"
+        }
     }
 
-    Item {
-        Layout.fillWidth: true
+    leftCenterComponent: RowLayout {
+        Rectangle {
+            Layout.preferredWidth: 100
+            Layout.fillHeight: true
+            color: "orange"
+        }
     }
 
-    RowLayout {
-        Layout.alignment: Qt.AlignHCenter
+    centerComponent: DateTime {}
 
-        DateTime {}
+    rightCenterComponent: RowLayout {
+        Rectangle {
+            Layout.preferredWidth: 100
+            Layout.fillHeight: true
+            color: "green"
+        }
     }
 
-    Item {
-        Layout.fillWidth: true
-    }
-
-    RowLayout {
-
+    rightComponent: RowLayout {
+        Rectangle {
+            Layout.preferredWidth: 100
+            Layout.fillHeight: true
+            color: "blue"
+        }
     }
 }

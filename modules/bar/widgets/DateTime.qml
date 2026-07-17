@@ -6,8 +6,6 @@ import "../../../components/text"
 import "../../../services"
 
 Control {
-    Layout.fillHeight: true
-
     padding: 4
 
     contentItem: GoldenColumn {

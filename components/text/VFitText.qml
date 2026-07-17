@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Layouts
 
 StyleText {
     minimumPixelSize: 1
@@ -6,4 +7,11 @@ StyleText {
     fontSizeMode: Text.VerticalFit
     wrapMode: Text.NoWrap
     verticalAlignment: Text.AlignVCenter
+
+    function updateLayoutWidth(): void {
+        parent.Layout.preferredWidth = paintedWidth;
+    }
+
+    Component.onCompleted: updateLayoutWidth()
+    onPaintedWidthChanged: updateLayoutWidth()
 }

@@ -31,7 +31,7 @@ Control {
 
                 contentItem: RowLayout {
                     VFitText {
-                        text: wsContainer.modelData.name
+                        text: wsContainer.modelData?.name ?? "?"
 
                         Layout.fillHeight: true
                     }
@@ -54,7 +54,7 @@ Control {
                     color: ThemeService.bgColor2
                     radius: 8
                     border {
-                        color: wsContainer.modelData.active ? ThemeService.textColor : "transparent"
+                        color: wsContainer.modelData?.active ? ThemeService.textColor : "transparent"
                         width: 1
                     }
 

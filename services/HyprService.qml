@@ -34,7 +34,7 @@ Singleton {
     }
 
     function getWorkspaceIcons(workspace: HyprlandWorkspace): list<string> {
-        return workspace.toplevels.values.map((t) => getIconSource(t));
+        return workspace?.toplevels.values.map((t) => getIconSource(t)) ?? [];
     }
 
     function getScreenWorkspaces(screen: ShellScreen): list<HyprlandWorkspace> {

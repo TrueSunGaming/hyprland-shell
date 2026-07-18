@@ -6,6 +6,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Hyprland
 import Quickshell.Widgets
+import "../../../components/anim"
 import "../../../components/text"
 import "../../../services"
 
@@ -26,7 +27,7 @@ Control {
                 required property HyprlandWorkspace modelData
 
                 Layout.fillHeight: true
-                padding: 4
+                padding: 5
 
                 contentItem: RowLayout {
                     VFitText {
@@ -51,7 +52,15 @@ Control {
 
                 background: Rectangle {
                     color: ThemeService.bgColor2
-                    radius: 4
+                    radius: 8
+                    border {
+                        color: wsContainer.modelData.active ? ThemeService.textColor : "transparent"
+                        width: 1
+                    }
+
+                    Behavior on border.color {
+                        ColorAnimNorm {}
+                    }
                 }
 
                 TapHandler {

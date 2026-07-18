@@ -27,8 +27,8 @@ Singleton {
         // qmllint enable unresolved-type missing-property
         if (rawClass == "") return "";
 
-        const entry = DesktopEntries.heuristicLookup(rawClass);
-        const appName = entry?.icon ?? rawClass;
+        const entry = DesktopEntryService.getAppIconEntry(rawClass);
+        const appName = entry || rawClass;
 
         return Quickshell.iconPath(appName, true) || Quickshell.iconPath(appName.toLowerCase(), true);
     }
@@ -38,7 +38,7 @@ Singleton {
     }
 
     function getScreenWorkspaces(screen: ShellScreen): list<HyprlandWorkspace> {
-        return workspaces.filter((ws) => ws.monitor.name == screen.name);
+        return workspaces.filter((ws) => ws.monitor?.name == screen.name);
     }
 
     function execFloating(command: string): void {

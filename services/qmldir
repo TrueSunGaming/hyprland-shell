@@ -1,3 +1,4 @@
 singleton ClockService 1.0 ClockService.qml
+singleton DesktopEntryService 1.0 DesktopEntryService.qml
 singleton HyprService 1.0 HyprService.qml
 singleton ThemeService 1.0 ThemeService.qml

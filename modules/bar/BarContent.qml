@@ -1,14 +1,20 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Layouts
+import Quickshell
 import "../../components/containers"
 import "widgets"
 
 FiveRow {
+    id: root
+    required property ShellScreen screen
+
     leftComponent: RowLayout {
-        Rectangle {
-            Layout.preferredWidth: 100
+        Workspaces {
+            screen: root.screen
+
             Layout.fillHeight: true
-            color: "red"
         }
     }
 

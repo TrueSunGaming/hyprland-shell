@@ -7,6 +7,7 @@ StyleText {
     fontSizeMode: Text.VerticalFit
     wrapMode: Text.NoWrap
     verticalAlignment: Text.AlignVCenter
+    Layout.preferredWidth: paintedWidth
 
     function updateLayoutWidth(): void {
         parent.Layout.preferredWidth = paintedWidth;

@@ -5,6 +5,8 @@ import "../../components/containers/window"
 import "../../services"
 
 StyleWindow {
+    id: root
+
     required property ShellScreen currentScreen
     screen: currentScreen
 
@@ -21,7 +23,9 @@ StyleWindow {
 
         opacity: 0.9
 
-        contentItem: BarContent {}
+        contentItem: BarContent {
+            screen: root.screen
+        }
 
         background: Rectangle {
             color: ThemeService.bgColor

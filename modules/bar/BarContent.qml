@@ -37,10 +37,16 @@ FiveRow {
     }
 
     rightComponent: RowLayout {
-        Rectangle {
-            Layout.preferredWidth: 100
+        spacing: 0
+
+        Audio {
             Layout.fillHeight: true
-            color: "blue"
+        }
+
+        Wifi {
+            Layout.fillHeight: true
+
+            leftPadding: 0
         }
     }
 }

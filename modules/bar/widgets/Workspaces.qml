@@ -27,7 +27,7 @@ Control {
                 required property HyprlandWorkspace modelData
 
                 Layout.fillHeight: true
-                padding: 5
+                padding: 4
 
                 contentItem: RowLayout {
                     VFitText {

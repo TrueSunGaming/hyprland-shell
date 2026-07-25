@@ -15,7 +15,7 @@ Control {
         }
 
         bottomComponent: VFitText {
-            text: ClockService.format("dddd, MMMM d")
+            text: ClockService.format("dddd, MMM d")
             horizontalAlignment: Text.AlignHCenter
         }
     }

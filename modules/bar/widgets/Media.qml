@@ -26,7 +26,7 @@ Control {
 
                 MediaButton {
                     text: ""
-                    enabled: MediaService.activePlayer?.canGoPrevious ?? false
+                    buttonEnabled: MediaService.activePlayer?.canGoPrevious ?? false
                     onTapped: MediaService.activePlayer?.previous()
                 }
 
@@ -34,13 +34,13 @@ Control {
                     readonly property bool playing: MediaService.isPlaying(MediaService.activePlayer)
 
                     text: playing ? "" : ""
-                    enabled: (playing ? MediaService.activePlayer?.canPause : MediaService.activePlayer?.canPlay) ?? false
+                    buttonEnabled: (playing ? MediaService.activePlayer?.canPause : MediaService.activePlayer?.canPlay) ?? false
                     onTapped: MediaService.togglePauseActivePlayer()
                 }
 
                 MediaButton {
                     text: ""
-                    enabled: MediaService.activePlayer?.canGoNext ?? false
+                    buttonEnabled: MediaService.activePlayer?.canGoNext ?? false
                     onTapped: MediaService.activePlayer?.next()
                 }
             }

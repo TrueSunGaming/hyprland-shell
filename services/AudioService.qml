@@ -7,7 +7,7 @@ Singleton {
     id: root
 
     readonly property PwNode sink: Pipewire.defaultAudioSink
-    readonly property PwNodeAudio audio: sink?.audio
+    readonly property PwNodeAudio audio: sink?.audio ?? null
 
     PwObjectTracker {
         id: sinkTracker

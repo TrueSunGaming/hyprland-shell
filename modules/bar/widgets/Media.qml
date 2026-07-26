@@ -59,22 +59,62 @@ Control {
             }
         }
 
-        background: BlurImageBackground {
+        background: Loader {
             id: bg
-            image.source: Qt.resolvedUrl(MediaService.activePlayer?.trackArtUrl ?? "")
 
-            BottomBar {
-                barColor: Qt.alpha(ThemeService.textColor, 0.3)
-                maskWidth: parent.width
+            anchors.fill: parent
+            
+            Component {
+                id: activeComponent
+                BlurImageBackground {
+                    image.source: Qt.resolvedUrl(MediaService.activePlayer?.trackArtUrl ?? "")
+                }
             }
 
-            BottomBar {
-                barColor: ThemeService.textColor
-                maskWidth: parent.width * MediaService.getProgress(MediaService.activePlayer)
+            Component {
+                id: inactiveComponent
+                Rectangle {
+                    color: ThemeService.bgColor2
+                    radius: 8
+                }
+            }
 
-                FrameAnimation {
-                    running: MediaService.isPlaying(MediaService.activePlayer)
-                    onTriggered: MediaService.activePlayer?.positionChanged()
+            states: [
+                State {
+                    name: "active"
+                    when: MediaService.activePlayer
+                    PropertyChanges {
+                        target: bg
+                        sourceComponent: activeComponent
+                    }
+                },
+                State {
+                    name: "inactive"
+                    when: !MediaService.activePlayer
+                    PropertyChanges {
+                        target: bg
+                        sourceComponent: inactiveComponent
+                    }
+                }
+            ]
+
+            Item {
+                anchors.fill: parent
+                z: 1
+
+                BottomBar {
+                    barColor: Qt.alpha(ThemeService.textColor, 0.3)
+                    maskWidth: parent.width
+                }
+
+                BottomBar {
+                    barColor: ThemeService.textColor
+                    maskWidth: parent.width * MediaService.getProgress(MediaService.activePlayer)
+
+                    FrameAnimation {
+                        running: MediaService.isPlaying(MediaService.activePlayer)
+                        onTriggered: MediaService.activePlayer?.positionChanged()
+                    }
                 }
             }
         }

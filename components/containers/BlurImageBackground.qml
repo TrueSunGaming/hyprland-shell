@@ -8,8 +8,6 @@ Item {
     property alias image: sourceImage
     property alias mask: cornerMask
 
-    anchors.fill: parent
-
     Image {
         id: sourceImage
 

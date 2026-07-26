@@ -51,8 +51,8 @@ Singleton {
 
     readonly property real activePlayerProgress: getProgress(activePlayer)
 
-    function togglePauseActivePlayer(): void {
-        if (!activePlayer) return;
-        activePlayer.playbackState == MprisPlaybackState.Playing ? activePlayer.pause() : activePlayer.play();
+    function togglePause(player: MprisPlayer): void {
+        if (!player) return;
+        player.playbackState == MprisPlaybackState.Playing ? player.pause() : player.play();
     }
 }

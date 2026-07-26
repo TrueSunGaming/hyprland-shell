@@ -15,9 +15,13 @@ Singleton {
         }
     }
 
-    function getAppIconEntry(appClass: string): string {
+    function heuristicLookup(name: string): DesktopEntry {
         let _ = _bindToggle; // create binding dependency
 
-        return DesktopEntries.heuristicLookup(appClass)?.icon ?? "";
+        return DesktopEntries.heuristicLookup(name);
+    }
+
+    function getAppIconEntry(appClass: string): string {
+        return heuristicLookup(appClass)?.icon ?? "";
     }
 }

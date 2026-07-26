@@ -8,6 +8,7 @@ import Quickshell
 import Quickshell.Services.Mpris
 import Quickshell.Widgets
 import "../containers"
+import "../decorations"
 import "../text"
 import "../../services"
 

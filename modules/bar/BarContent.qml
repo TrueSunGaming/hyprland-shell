@@ -22,6 +22,7 @@ FiveRow {
         Rectangle {
             Layout.preferredWidth: 100
             Layout.fillHeight: true
+            Layout.rightMargin: 8
             color: "orange"
         }
     }
@@ -29,10 +30,9 @@ FiveRow {
     centerComponent: DateTime {}
 
     rightCenterComponent: RowLayout {
-        Rectangle {
-            Layout.preferredWidth: 100
+        Media {
+            Layout.leftMargin: 8
             Layout.fillHeight: true
-            color: "green"
         }
     }
 

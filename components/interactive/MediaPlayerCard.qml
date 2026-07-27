@@ -36,6 +36,8 @@ Control {
 
                 readonly property bool clickable: root.player?.canRaise ?? false
 
+                visible: root.app != null
+
                 contentItem: RowLayout {
                     spacing: 2
 
@@ -43,7 +45,8 @@ Control {
                         Layout.fillHeight: true
                         Layout.preferredWidth: height
 
-                        source: Quickshell.iconPath(root.app?.icon ?? "")
+                        readonly property string icon: root.app?.icon ?? ""
+                        source: icon ? Quickshell.iconPath(icon) : ""
                     }
 
                     Item {
@@ -72,7 +75,8 @@ Control {
 
                 TapHandler {
                     onTapped: {
-                        if (appControl.clickable) root.player?.raise()
+                        if (appControl.clickable)
+                            root.player?.raise();
                     }
                 }
             }

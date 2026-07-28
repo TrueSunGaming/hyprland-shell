@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import "modules/bar"
+import "modules/screen"
 import "modules/theme"
 
 ShellRoot {
@@ -9,12 +10,17 @@ ShellRoot {
     Variants {
         model: Quickshell.screens
 
-        Item {
+        Scope {
             id: screenWrapper
             required property ShellScreen modelData
 
+            ScreenManager {
+                id: screenManagerObj
+                screen: screenWrapper.modelData
+            }
+
             BarWindow {
-                currentScreen: screenWrapper.modelData
+                screenManager: screenManagerObj
             }
         }
     }

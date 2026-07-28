@@ -9,10 +9,11 @@ import Quickshell.Widgets
 import "../../../components/anim"
 import "../../../components/text"
 import "../../../services"
+import "../../screen"
 
 Control {
     id: root
-    required property ShellScreen screen
+    required property ScreenManager screenManager
 
     padding: 8
 
@@ -20,7 +21,7 @@ Control {
         spacing: 4
 
         Repeater {
-            model: HyprService.getScreenWorkspaces(root.screen)
+            model: HyprService.getScreenWorkspaces(root.screenManager.screen)
 
             delegate: Control {
                 id: wsContainer

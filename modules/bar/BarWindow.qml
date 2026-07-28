@@ -3,12 +3,13 @@ import QtQuick.Controls
 import Quickshell
 import "../../components/containers/window"
 import "../../services"
+import "../screen"
 
 StyleWindow {
     id: root
 
-    required property ShellScreen currentScreen
-    screen: currentScreen
+    required property ScreenManager screenManager
+    screen: screenManager.screen
 
     anchors {
         top: true
@@ -24,11 +25,16 @@ StyleWindow {
         opacity: 0.9
 
         contentItem: BarContent {
-            screen: root.screen
+            screenManager: root.screenManager
         }
 
         background: Rectangle {
             color: ThemeService.bgColor
         }
+    }
+
+    Component.onCompleted: screenManager.bar = this
+    Component.onDestruction: {
+        if (screenManager.bar == this) screenManager.bar = null;
     }
 }

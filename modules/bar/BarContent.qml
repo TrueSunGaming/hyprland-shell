@@ -5,14 +5,15 @@ import QtQuick.Layouts
 import Quickshell
 import "../../components/containers"
 import "widgets"
+import "../screen"
 
 FiveRow {
     id: root
-    required property ShellScreen screen
+    required property ScreenManager screenManager
 
     leftComponent: RowLayout {
         Workspaces {
-            screen: root.screen
+            screenManager: root.screenManager
 
             Layout.fillHeight: true
         }
@@ -27,7 +28,9 @@ FiveRow {
         }
     }
 
-    centerComponent: DateTime {}
+    centerComponent: CenterBarContent {
+        screenManager: root.screenManager
+    }
 
     rightCenterComponent: RowLayout {
         Media {

@@ -115,7 +115,7 @@ PopupWindow {
         Control {
             id: contentControl
 
-            anchors.top: parent.top
+            anchors.bottom: parent.bottom
             anchors.horizontalCenter: parent.horizontalCenter
 
             contentItem: root.content

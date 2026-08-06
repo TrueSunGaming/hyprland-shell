@@ -62,7 +62,7 @@ Control {
                 }
 
                 background: Rectangle {
-                    color: "#20ffffff"
+                    color: ThemeService.hoverColor
                     radius: 4
 
                     visible: appControl.clickable && appHover.hovered
@@ -205,7 +205,7 @@ Control {
         }
 
         background: Rectangle {
-            color: "#20ffffff"
+            color: ThemeService.hoverColor
             radius: 4
 
             visible: buttonRoot.buttonEnabled && hoverHandler.hovered

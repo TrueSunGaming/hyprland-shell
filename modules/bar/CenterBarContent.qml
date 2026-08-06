@@ -14,7 +14,7 @@ Control {
     contentItem: DateTime {}
 
     background: Rectangle {
-        color: ThemeService.bgColor2
+        color: ThemeService.hoverColor
         visible: hoverHandler.hovered
     }
 

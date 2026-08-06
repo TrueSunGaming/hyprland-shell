@@ -36,6 +36,11 @@ Singleton {
         ColorAnimLong {}
     }
 
+    property color hoverColor: activeTheme.hoverColor
+    Behavior on hoverColor {
+        ColorAnimLong {}
+    }
+
     property color textColor: activeTheme.textColor
     Behavior on textColor {
         ColorAnimLong {}

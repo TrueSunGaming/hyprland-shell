@@ -9,6 +9,7 @@ QtObject {
 
     property color bgColor: "#0f0f0f"
     property color bgColor2: "#2f2f2f"
+    property color hoverColor: "#20ffffff"
     property color textColor: "#b0ffff"
 
     property string fontFamily: "Inter"

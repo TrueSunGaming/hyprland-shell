@@ -4,6 +4,7 @@ import "../screen"
 import "../../services"
 import "drawer"
 import "widgets"
+import "../../components/interactive"
 
 Control {
     id: root
@@ -22,28 +23,10 @@ Control {
         cursorShape: Qt.PointingHandCursor
     }
 
-    TapHandler {
-        onTapped: root.screenManager.toggleDrawer(drawer)
-    }
-
-    CenterDrawer {
-        id: drawer
-
-        screenManager: root.screenManager
-        anchorItem: root
-
-        content: Rectangle {
-            implicitWidth: 100
-            implicitHeight: 300
-            color: "transparent"
-
-            Rectangle {
-                anchors.bottom: parent.bottom
-                anchors.horizontalCenter: parent.horizontalCenter
-
-                implicitWidth: 100
-                implicitHeight: 100
-            }
+    DrawerSpawner {
+        drawer: CenterDrawer {
+            screenManager: root.screenManager
+            anchorItem: root.contentItem
         }
     }
 }

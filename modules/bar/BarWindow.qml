@@ -1,40 +1,37 @@
 import QtQuick
-import QtQuick.Controls
-import Quickshell
+import "../../components/containers"
 import "../../components/containers/window"
 import "../../services"
-import "../screen"
 
-StyleWindow {
+FullscreenWindow {
     id: root
 
-    required property ScreenManager screenManager
-    screen: screenManager.screen
+    exclusiveZone: ThemeService.barHeight
 
-    anchors {
-        top: true
-        left: true
-        right: true
-    }
+    Pseudowindow {
+        id: pseudowindow
 
-    implicitHeight: ThemeService.barHeight
+        screenManager: root.screenManager
 
-    Control {
-        anchors.fill: parent
+        x: 0
+        y: 0
+        implicitWidth: screenManager.screen.width
+        implicitHeight: ThemeService.barHeight
+        // implicitWidth: 100
+        // implicitHeight: 100
 
+        color: ThemeService.bgColor
         opacity: 0.9
 
-        contentItem: BarContent {
+        BarContent {
             screenManager: root.screenManager
-        }
-
-        background: Rectangle {
-            color: ThemeService.bgColor
+            anchors.fill: parent
         }
     }
 
     Component.onCompleted: screenManager.bar = this
     Component.onDestruction: {
-        if (screenManager.bar == this) screenManager.bar = null;
+        if (screenManager.bar == this)
+            screenManager.bar = null;
     }
 }

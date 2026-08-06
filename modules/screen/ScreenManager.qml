@@ -1,29 +1,36 @@
 import Quickshell
+import "../../components/containers"
 import "../../components/containers/window"
+import "../bar"
 
 Scope {
     required property ShellScreen screen
 
-    property PanelWindow bar
-    property DrawerWindow activeDrawer: null
+    property FullscreenWindow fullscreenWindow
+    property BarWindow bar
+    property PseudoDrawer activeDrawer: null
 
-    function closeDrawer(win: DrawerWindow): void {
-        win.open = false;
-        if (activeDrawer == win) activeDrawer = null;
+    function closeDrawer(drawer: PseudoDrawer): void {
+        drawer.open = false;
+        if (activeDrawer == drawer)
+            activeDrawer = null;
     }
 
     function closeActiveDrawer(): void {
-        if (activeDrawer) closeDrawer(activeDrawer);
+        if (activeDrawer)
+            closeDrawer(activeDrawer);
     }
 
-    function openDrawer(win: DrawerWindow): void {
+    function openDrawer(drawer: PseudoDrawer): void {
         closeActiveDrawer();
-        win.open = true;
-        activeDrawer = win;
+        drawer.open = true;
+        activeDrawer = drawer;
     }
 
-    function toggleDrawer(win: DrawerWindow): void {
-        if (activeDrawer == win) closeDrawer(win);
-        else openDrawer(win);
+    function toggleDrawer(drawer: PseudoDrawer): void {
+        if (activeDrawer == drawer)
+            closeDrawer(drawer);
+        else
+            openDrawer(drawer);
     }
 }

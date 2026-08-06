@@ -2,11 +2,8 @@ import QtQuick
 import Quickshell
 import "modules/bar"
 import "modules/screen"
-import "modules/theme"
 
 ShellRoot {
-    ThemeLoader {}
-
     Variants {
         model: Quickshell.screens
 

@@ -19,11 +19,9 @@ FiveRow {
     }
 
     leftCenterComponent: RowLayout {
-        Rectangle {
-            Layout.preferredWidth: 100
-            Layout.fillHeight: true
+        SysTray {
             Layout.rightMargin: 8
-            color: "orange"
+            Layout.fillHeight: true
         }
     }
 

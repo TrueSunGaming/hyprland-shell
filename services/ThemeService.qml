@@ -3,7 +3,7 @@ pragma Singleton
 import QtQuick
 import Quickshell
 import "../components/anim"
-import "../modules/theme"
+import "../theme"
 
 Singleton {
     readonly property list<Theme> themes: []
@@ -35,7 +35,7 @@ Singleton {
     Behavior on bgColor2 {
         ColorAnimLong {}
     }
-    
+
     property color textColor: activeTheme.textColor
     Behavior on textColor {
         ColorAnimLong {}
